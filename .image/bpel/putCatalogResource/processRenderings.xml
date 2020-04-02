@@ -1,0 +1,118 @@
+<processRenderings modified="1500040850724">
+   <layout-segments>
+      <segment height="379" id="process_0" tiled="false" width="380">
+         <image height="379" name="process_0_R1C1.jpg" width="380"/>
+      </segment>
+      <segment height="347" id="fault_handlers_1" tiled="false" width="296">
+         <image height="347" name="fault_handlers_1_R1C1.jpg" width="296"/>
+      </segment>
+   </layout-segments>
+   <process>
+      <bpel locationId="1"
+            name="putCatalogResource"
+            path="/process"
+            segment="process_0"
+            sheight="33"
+            swidth="33"
+            sx="226"
+            sy="258"
+            type="process">
+         <bpel locationId="11" path="/process/partnerLinks" type="partnerLinks">
+            <bpel locationId="12"
+                  name="AutomatedStep"
+                  path="/process/partnerLinks/partnerLink[@name='AutomatedStep']"
+                  type="partnerLink"/>
+         </bpel>
+         <bpel locationId="14" path="/process/variables" type="variables">
+            <bpel locationId="15"
+                  name="gAutomatedStepRequest"
+                  path="/process/variables/variable[@name='gAutomatedStepRequest']"
+                  type="variable"/>
+            <bpel locationId="16"
+                  name="gAutomatedStepResponse"
+                  path="/process/variables/variable[@name='gAutomatedStepResponse']"
+                  type="variable"/>
+         </bpel>
+         <bpel locationId="17"
+               path="/process/faultHandlers"
+               segment="fault_handlers_1"
+               sheight="33"
+               swidth="33"
+               sx="226"
+               sy="258"
+               type="faultHandlers">
+            <bpel height="60"
+                  locationId="18"
+                  path="/process/faultHandlers/catchAll"
+                  type="catchAll"
+                  width="32"
+                  x="161"
+                  y="123">
+               <bpel locationId="19"
+                     name=""
+                     path="/process/faultHandlers/catchAll/scope"
+                     type="scope">
+                  <bpel locationId="20"
+                        path="/process/faultHandlers/catchAll/scope/variables"
+                        type="variables">
+                     <bpel locationId="21"
+                           name="parameters"
+                           path="/process/faultHandlers/catchAll/scope/variables/variable[@name='parameters']"
+                           type="variable"/>
+                  </bpel>
+                  <bpel locationId="22"
+                        name=""
+                        path="/process/faultHandlers/catchAll/scope/sequence"
+                        type="sequence">
+                     <bpel locationId="23"
+                           name=""
+                           path="/process/faultHandlers/catchAll/scope/sequence/assign"
+                           type="assign"/>
+                     <bpel height="60"
+                           locationId="27"
+                           name=""
+                           path="/process/faultHandlers/catchAll/scope/sequence/reply"
+                           type="reply"
+                           width="70"
+                           x="142"
+                           y="193"/>
+                  </bpel>
+               </bpel>
+            </bpel>
+         </bpel>
+         <bpel height="10"
+               locationId="28"
+               name=""
+               path="/process/sequence"
+               type="sequence"
+               width="1"
+               x="243"
+               y="72">
+            <bpel height="60"
+                  locationId="29"
+                  name="automatedStep"
+                  path="/process/sequence/receive[@name='automatedStep']"
+                  type="receive"
+                  width="70"
+                  x="208"
+                  y="82"/>
+            <bpel height="53"
+                  locationId="30"
+                  name="Save_to_Catalog"
+                  path="/process/sequence/assign[@name='Save_to_Catalog']"
+                  type="assign"
+                  width="125"
+                  x="181"
+                  y="167"/>
+            <bpel height="60"
+                  locationId="36"
+                  name="automatedStep-Reply"
+                  path="/process/sequence/reply[@name='automatedStep-Reply']"
+                  type="reply"
+                  width="70"
+                  x="208"
+                  y="245"/>
+         </bpel>
+      </bpel>
+   </process>
+</processRenderings>

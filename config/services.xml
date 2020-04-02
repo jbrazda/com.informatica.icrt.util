@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screenflowContribution xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosServiceDiscovery.xsd">
+
+   <service name="putCatalogResource">
+      <avosServiceName>putCatalogResource</avosServiceName>
+      <displayName>putCatalogResource</displayName>
+      <category>Automated Steps:Utilities</category>
+      <description>Service saves XML to a process engine catalog under provided resource URI. It can be used to store configuration and other xml data and metadata to process catalog</description>
+      <iconLocation>project:/com.informatica.icrt.util/images/script_gear.png</iconLocation>
+	  <largeIconLocation>project:/com.informatica.icrt.util/images/script_gear.png</largeIconLocation>
+		<input>
+			<parameter name="xml" required="true" type="xml" description="XML Node" />
+			<parameter name="uri" required="true" type="string" description="Catalog URI example: project:/project_name/config/file_name.xml"/>
+			<parameter name="org_id" required="true" type="string" description="Informatica Cloud Org ID "/>
+		</input>
+		<output>		
+			<field name="file_uri" type="string" description="Location URI in the catalog" />
+			<field name="file_url" type="url" description="File Catalog URL - process console view"/>
+		</output>
+   </service>
+   
+   <service name="ASEncrypt">
+      <avosServiceName>ASEncrypt</avosServiceName>
+      <displayName>ASEncrypt</displayName>
+      <category>Automated Steps:Utilities</category>
+      <description>This service allows to encrypt data using  process engine built-in encryption facility. 
+      It can be used to encrypt passwords and API Keys in configuration files or URN mappings.</description>
+      <iconLocation>project:/com.informatica.icai.coupa/images/cog_go.png</iconLocation>
+      <largeIconLocation>project:/com.informatica.icai.coupa/images/cog_go.png</largeIconLocation>
+      <input>
+         <parameter name="in_encrypt" required="true" type="string" description="Data to Be Encrypted"></parameter>
+      </input>
+      <output>
+         <field description="Encrypted Data" label="" name="out_encrypted" type="string"></field>
+      </output>
+   </service>
+   
+   <service name="ASDecrypt">
+      <avosServiceName>ASDecrypt</avosServiceName>
+      <displayName>ASDecrypt</displayName>
+      <category>Automated Steps:Utilities</category>
+      <description>This service allows to decrypt data using  process engine built-in encryption facility. 
+      It can be used to encrypt passwords and API Keys in configuration files or URN mappings.</description>
+      <iconLocation>project:/com.informatica.icai.coupa/images/cog_go.png</iconLocation>
+      <largeIconLocation>project:/com.informatica.icai.coupa/images/cog_go.png</largeIconLocation>
+      <input>
+         <parameter name="in_decrypt" required="true" type="string" description="Data to Be Decrypted"></parameter>
+      </input>
+      <output>
+         <field description="Decrypted Data" label="" name="out_decrypted" type="string"></field>
+      </output>
+   </service>
+   
+</screenflowContribution>

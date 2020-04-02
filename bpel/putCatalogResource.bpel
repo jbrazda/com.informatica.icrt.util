@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:ext1="http://www.activebpel.org/2009/06/bpel/extension/links"
+              xmlns:ext2="http://www.activebpel.org/2011/08/bpel/extension/script"
+              xmlns:avosAutomatedStep="http://schemas.active-endpoints.com/wsdl/screenFlow/2010/10/avosAutomatedStep.wsdl"
+              xmlns:abx="http://www.activebpel.org/bpel/extension"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:sf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+              xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+              xmlns:xmu="http://informatica.com/modules/icrt/xml_utils/1.0/xquery"
+              xmlns:ext="http://www.activebpel.org/2006/09/bpel/extension/query_handling"
+              xmlns:aei="http://www.activebpel.org/2009/02/bpel/extension/ignorable"
+              aei:editStyle="BPMN"
+              ext1:linksAreTransitions="yes"
+              ext:createTargetXPath="yes"
+              ext:disableSelectionFailure="yes"
+              name="putCatalogResource"
+              suppressJoinFailure="yes"
+              targetNamespace="http://putCatalogResource">
+   <bpmndi:BPMNDiagram xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                       xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                       aei:bpelDigest=""
+                       aei:editStyle="BPMN"
+                       aei:layoutNeeded="false"
+                       aei:modelVersion="5"
+                       aei:objectId="149995566397000029"
+                       aei:processInitiatorSim=""
+                       isHorizontal="false">
+      <bpmndi:BPMNPlane>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="149995592737100481"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="149995592737100481"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {171,72}"
+                           aei:absoluteSize="DIM {145,243}"
+                           aei:objectId="149995596251800511"
+                           aei:type="SEQUENCE"
+                           bpmnElement="149995596251800511"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="161" y="62"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {208,82}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:attachments=""
+                           aei:name="automatedStep"
+                           aei:objectId="149995596250900507"
+                           aei:principal=""
+                           aei:text="automatedStep"
+                           aei:type="RECEIVE"
+                           bpmnElement="149995596250900507">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {216,139}"
+                              aei:absoluteSize="DIM {74,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="149995596250900507"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="149995596257400513"
+                              aei:relative.location="LOC {-37,47}"
+                              aei:text="automatedStep"
+                              bpmnElement="149995596250900507label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {181,167}"
+                           aei:absoluteSize="DIM {125,53}"
+                           aei:name="Save to Catalog"
+                           aei:objectId="149995749844901798"
+                           aei:type="ASSIGN"
+                           bpmnElement="149995749844901798">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {208,245}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:name="automatedStep-Reply"
+                           aei:objectId="149995596251700509"
+                           aei:text="automatedStep-Reply"
+                           aei:type="REPLY"
+                           bpmnElement="149995596251700509">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {201,302}"
+                              aei:absoluteSize="DIM {105,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="149995596251700509"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="149995596259000515"
+                              aei:relative.location="LOC {-52,47}"
+                              aei:text="automatedStep-Reply"
+                              bpmnElement="149995596251700509label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:catchAllFaults="true"
+                           aei:collapedIconLocation="icons/bpmn/activity/catch.png"
+                           aei:constraint=""
+                           aei:expanded="true"
+                           aei:expandedSize="DIM {-1,-1}"
+                           aei:imageLocation="icons/bpmn/activity/large/paletteCatchLarge.png"
+                           aei:objectId="149995806676003113"
+                           aei:type="CATCH_ALL"
+                           bpmnElement="149995806676003113"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="112" y="113"/>
+            <bpmndi:BPMNLabel aei:anchor.location="0"
+                              aei:anchor.objectId="149996053830505479"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="149996053830505481"
+                              aei:relative.location="LOC {-12,0}"
+                              aei:text="Error"
+                              bpmnElement="149995806676003113label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="149995807291003337"
+                           aei:type="REPLY"
+                           bpmnElement="149995807291003337">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="1"
+                              aei:anchor.objectId="149995807933303385"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="149995807933403387"
+                              aei:relative.location="LOC {-21,47}"
+                              aei:text="Message"
+                              bpmnElement="149995807291003337label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="149995807291503341"
+                           aei:type="Sequence"
+                           bpmnElement="149995807291003337wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="-10" y="-10"/>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+   <bpel:extensions>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.activebpel.org/2009/02/bpel/extension/ignorable"/>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.omg.org/spec/BPMN/20100524/DI"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2006/09/bpel/extension/query_handling"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2009/06/bpel/extension/links"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2011/08/bpel/extension/script"/>
+   </bpel:extensions>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                namespace="http://schemas.active-endpoints.com/wsdl/screenFlow/2010/10/avosAutomatedStep.wsdl"/>
+   <bpel:import importType="http://modules.active-endpoints.com/2009/07/xquery"
+                location="../xquery/xml_utils.xq"
+                namespace="http://informatica.com/modules/icrt/xml_utils/1.0/xquery"/>
+   <bpel:partnerLinks>
+      <bpel:partnerLink aei:id="149995592737100481"
+                        myRole="Provider"
+                        name="AutomatedStep"
+                        partnerLinkType="avosAutomatedStep:AutomatedStepOperationsPLT"/>
+   </bpel:partnerLinks>
+   <bpel:variables>
+      <bpel:variable element="sf:automatedStepRequest" name="gAutomatedStepRequest"/>
+      <bpel:variable element="sf:automatedStepResponse" name="gAutomatedStepResponse"/>
+   </bpel:variables>
+   <bpel:faultHandlers>
+      <bpel:catchAll aei:id="149995806676003113">
+         <bpel:scope aei:implicit="true">
+            <bpel:variables>
+               <bpel:variable messageType="avosAutomatedStep:automatedStepFault" name="parameters"/>
+            </bpel:variables>
+            <bpel:sequence>
+               <bpel:assign aei:assignType="XQUERY" aei:id="149995808876903419">
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;sf:faultResponse xmlns:sf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"&gt;
+   &lt;sf:code&gt;{ abx:getFaultCode()  }&lt;/sf:code&gt;
+   &lt;sf:reason&gt;{ abx:getFaultString() }&lt;/sf:reason&gt;
+   &lt;sf:details&gt;{ abx:getFaultDetail() }&lt;/sf:details&gt;
+&lt;/sf:faultResponse&gt;</bpel:from>
+                     <bpel:to part="automatedStepFaultResponse" variable="parameters"/>
+                  </bpel:copy>
+               </bpel:assign>
+               <bpel:reply aei:id="149995807291003337"
+                           faultName="avosAutomatedStep:fault"
+                           operation="automatedStep"
+                           partnerLink="AutomatedStep"
+                           variable="parameters"/>
+            </bpel:sequence>
+         </bpel:scope>
+      </bpel:catchAll>
+   </bpel:faultHandlers>
+   <bpel:sequence aei:id="149995596251800511">
+      <bpel:receive aei:id="149995596250900507"
+                    createInstance="yes"
+                    name="automatedStep"
+                    operation="automatedStep"
+                    partnerLink="AutomatedStep"
+                    variable="gAutomatedStepRequest"/>
+      <bpel:assign aei:id="149995749844901798" name="Save_to_Catalog">
+         <bpel:extensionAssignOperation>
+            <ext2:script expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">let $location := $gAutomatedStepRequest/sf:parameters/sf:parameter[@name="uri"]/text()
+let $xml := xmu:addNamespaceIfSimplifiedXML($gAutomatedStepRequest/sf:parameters/sf:parameter[@name="xml"]/*) 
+return
+abx:putCatalogResource($location, $xml )</ext2:script>
+         </bpel:extensionAssignOperation>
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">let $file_location := $gAutomatedStepRequest/sf:parameters/sf:parameter[@name="uri"]/text()
+let $base_uri   := abx:resolveURN("ae:base-uri") (: https://ps1w2-ics.rt.informaticacloud.com :)
+let $agent_id   := abx:resolveURN("urn:environment:name") 
+let $org_id     := $gAutomatedStepRequest/sf:parameters/sf:parameter[@name="org_id"]/text()
+
+let $file_url := if (contains($agent_id,"Cloud Server")) then 
+     concat($base_uri,"/activevos/",$org_id,"/catalog_detail.action?locationHint=",$file_location)
+     else  
+     concat($base_uri,"/activevos/",$org_id,"/local/",$agent_id,"/catalog_detail.action?locationHint=",$file_location)
+
+return
+&lt;sf:automatedStepResponse xmlns:sf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"&gt;
+   &lt;sf:fields&gt;
+       &lt;sf:field name="file_url"&gt;{ $file_url }&lt;/sf:field&gt;
+       &lt;sf:field name="file_uri"&gt;{ $file_location }&lt;/sf:field&gt;
+   &lt;/sf:fields&gt;
+&lt;/sf:automatedStepResponse&gt;</bpel:from>
+            <bpel:to variable="gAutomatedStepResponse"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:reply aei:id="149995596251700509"
+                  name="automatedStep-Reply"
+                  operation="automatedStep"
+                  partnerLink="AutomatedStep"
+                  variable="gAutomatedStepResponse"/>
+   </bpel:sequence>
+</bpel:process>

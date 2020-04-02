@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project name="Service Archive" default='run' basedir=".">
+
+   <!-- The project root location. -->
+   <property name="project_loc" value="${basedir}/.." />
+
+   <!-- Some properties used by the script. -->
+   <property name="archive.filename" value="${project_loc}/target/bpr/com.informatica.icrt.util.bpr" />
+
+   <!-- The deployment location.  Typically a server/container deployment directory. -->
+   <property name="archive.deploypath" value="" />
+
+   <!-- The type of deployment. -->
+   <property name="archive.deploytype" value="file" />
+
+   <!-- A temp directory location. -->
+   <property name="archive.temppath" value="${java.io.tmpdir}" />
+
+   <!-- Taskdefs required when running this script from the command line. -->
+   <target name="init">
+      <property name="activevos.antlib" value="" />
+      <path id="activevos.classpath">
+         <fileset dir="${activevos.antlib}">
+            <include name="*.jar" />
+         </fileset>
+      </path>
+      <condition property="avos.tasks.available">
+         <and>
+            <available classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateCatalogTask"/>
+            <available classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeDeployBPRTask"/>
+            <available classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateContributionTask"/>
+         </and>
+      </condition>
+   </target>
+
+   <target name="load.tasks" depends="init" if="avos.tasks.available">
+      <taskdef name="deploybpr" onerror="ignore" classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeDeployBPRTask" />
+      <taskdef name="createcatalog" onerror="ignore" classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateCatalogTask" />
+      <taskdef name="createcontribution" onerror="ignore" classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateContributionTask" />
+   </target>
+
+   <!-- Build the BPR file from the following (generated) file set. -->
+   <target name="build" depends="load.tasks">
+      <delete file="${archive.filename}" />
+      <jar destfile="${archive.filename}">
+         <!-- PDD Files. -->
+         <zipfileset file="${project_loc}/deploy/ASDecrypt.pdd" fullpath="META-INF/pdd/com.informatica.icrt.util/deploy/ASDecrypt.pdd" />
+         <zipfileset file="${project_loc}/deploy/ASEncrypt.pdd" fullpath="META-INF/pdd/com.informatica.icrt.util/deploy/ASEncrypt.pdd" />
+         <zipfileset file="${project_loc}/deploy/putCatalogResource.pdd" fullpath="META-INF/pdd/com.informatica.icrt.util/deploy/putCatalogResource.pdd" />
+         <!-- BPEL Files. -->
+         <zipfileset file="${project_loc}/bpel/ASDecrypt.bpel" fullpath="bpel/com.informatica.icrt.util/bpel/ASDecrypt.bpel" />
+         <zipfileset file="${project_loc}/bpel/ASEncrypt.bpel" fullpath="bpel/com.informatica.icrt.util/bpel/ASEncrypt.bpel" />
+         <zipfileset file="${project_loc}/bpel/putCatalogResource.bpel" fullpath="bpel/com.informatica.icrt.util/bpel/putCatalogResource.bpel" />
+         <!-- Other Files. -->
+         <zipfileset file="${project_loc}/config/services.xml" fullpath="resources/com.informatica.icrt.util/config/services.xml" />
+         <zipfileset file="${project_loc}/images/cog_go.png" fullpath="resources/com.informatica.icrt.util/images/cog_go.png" />
+         <zipfileset file="${project_loc}/images/script_gear.png" fullpath="resources/com.informatica.icrt.util/images/script_gear.png" />
+         <zipfileset file="${project_loc}/xquery/AeCryptoUtil.xq" fullpath="wsdl/Users/jbrazda/git/icrt_common/com.informatica.icrt.util/xquery/AeCryptoUtil.xq" />
+         <zipfileset file="${project_loc}/xquery/xml_utils.xq" fullpath="wsdl/Users/jbrazda/git/icrt_common/com.informatica.icrt.util/xquery/xml_utils.xq" />
+         <!-- Process Image Files. -->
+         <zipfileset file="${project_loc}/.image/bpel/putCatalogResource/*" prefix=".image/com.informatica.icrt.util/bpel/putCatalogResource" />
+      </jar>
+      <createcatalog file="${archive.filename}" contributionURI="project:/com.informatica.icrt.util">
+         <otherentry typeURI="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosServiceDiscovery.xsd" location="project:/com.informatica.icrt.util/config/services.xml" classpath="resources/com.informatica.icrt.util/config/services.xml" />
+         <otherentry typeURI="res:/image/png" location="project:/com.informatica.icrt.util/images/cog_go.png" classpath="resources/com.informatica.icrt.util/images/cog_go.png" />
+         <otherentry typeURI="res:/image/png" location="project:/com.informatica.icrt.util/images/script_gear.png" classpath="resources/com.informatica.icrt.util/images/script_gear.png" />
+         <otherentry typeURI="http://modules.active-endpoints.com/2009/07/xquery" location="project:/com.informatica.icrt.util/xquery/AeCryptoUtil.xq" classpath="wsdl/Users/jbrazda/git/icrt_common/com.informatica.icrt.util/xquery/AeCryptoUtil.xq" />
+         <otherentry typeURI="http://modules.active-endpoints.com/2009/07/xquery" location="project:/com.informatica.icrt.util/xquery/xml_utils.xq" classpath="wsdl/Users/jbrazda/git/icrt_common/com.informatica.icrt.util/xquery/xml_utils.xq" />
+      </createcatalog>
+      <!-- The contribution task sets up a contribution file which documents the exported and imported namespaces for this contribution -->
+      <createcontribution file="${archive.filename}">
+         <!-- Namespaces exported by this contribution for use by other contributions  -->
+         <export namespace="http://activevos.com/modules/Aeaecu/1.0/xquery"/>
+         <export namespace="http://informatica.com/modules/icrt/xml_utils/1.0/xquery"/>
+         <!-- Namespaces from other contributions (location) that this contribution is dependent on if any -->
+         <!-- Namespaces for system services used in this contribution on if any -->
+         <import namespace="http://schemas.active-endpoints.com/wsdl/screenFlow/2010/10/avosAutomatedStep.wsdl" location="project:/com.activevos.socrates.repository.services"/>
+      </createcontribution>
+   </target>
+
+   <!-- Deploy the built BPR file to some kind of container/server. -->
+   <target name="deploy" depends="load.tasks">
+      <echo message="Deploying Business Process Archive." />
+
+      <!--
+         **** deploybpr task usage: ****
+         @type: Either 'file' or 'webservice'.
+         @file: The path to the BPR file created by the build target.
+         @todir: The path to deploy the BPR to when @type is 'file'.
+         @tourl: The URL of the server to deploy the BPR to when @type is 'webservice'.
+         @username: A username to use to authenticate when @type is 'webservice'.
+         @password: A password to use to authenticate when @type is 'webservice'.
+         @failonerror: Fail the build when it's set to true and @type is 'webservice'.
+      -->
+      <deploybpr type="${archive.deploytype}" file="${archive.filename}" failonerror="true" todir="${archive.deploypath}" />
+   </target>
+
+   <!-- The main entry point into this script, the run target calls various other targets in turn. -->
+   <target name="run" depends="build"/>
+
+   <target name="runDeploy" depends="run,deploy"/>
+
+</project>

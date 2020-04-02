@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aetgt:automatedStepRequest xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                            xmlns:aesf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd">
+   <aesf:userId>jbrazda@informatica.com.ceb.dev</aesf:userId>
+   <aesf:correlationId>41276336256</aesf:correlationId>
+   <aesf:serviceName>wd_address_mapping</aesf:serviceName>
+   <aesf:avosServiceName>wd_address_mapping</aesf:avosServiceName>
+   <aesf:runAsUser>$current</aesf:runAsUser>
+   <aesf:processId>41276336256</aesf:processId>
+   <aesf:stepId>ixhzbs0q</aesf:stepId>
+   <aesf:avosStepTitle>Update Workday Address Mapping Configuration</aesf:avosStepTitle>
+   <aesf:hostContext>
+      <aesf:arg name="tzOffset">300</aesf:arg>
+   </aesf:hostContext>
+   <aesf:parameters>
+      <aesf:parameter name="uri">project:/configuration/retry_configuration.xml</aesf:parameter>
+      <aesf:parameter name="xml">
+	      <RetryConfiguration xmlns="urn:config" xmlns:types="http://schemas.active-endpoints.com/wsdl/guideRuntime/2013/04/guideInterpreter.xsd"
+	                          xmlns:git="http://schemas.active-endpoints.com/wsdl/guideRuntime/2013/04/guideInterpreter.xsd"
+	                          xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+	                          xmlns:ns2="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd">
+	         <retryInterval>10</retryInterval>
+	         <retryCount>10</retryCount>
+	      </RetryConfiguration>
+      </aesf:parameter>
+      <aesf:parameter name="org_id">XBCFD</aesf:parameter>
+   </aesf:parameters>
+</aetgt:automatedStepRequest>

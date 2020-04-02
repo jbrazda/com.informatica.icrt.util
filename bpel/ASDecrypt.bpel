@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:aecu="http://activevos.com/modules/Aeaecu/1.0/xquery"
+              xmlns:ext1="http://www.activebpel.org/2009/06/bpel/extension/links"
+              xmlns:avosAutomatedStep="http://schemas.active-endpoints.com/wsdl/screenFlow/2010/10/avosAutomatedStep.wsdl"
+              xmlns:abx="http://www.activebpel.org/bpel/extension"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:sf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+              xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+              xmlns:ext="http://www.activebpel.org/2006/09/bpel/extension/query_handling"
+              xmlns:aei="http://www.activebpel.org/2009/02/bpel/extension/ignorable"
+              aei:editStyle="BPMN"
+              ext1:linksAreTransitions="yes"
+              ext:createTargetXPath="yes"
+              ext:disableSelectionFailure="yes"
+              name="ASDecrypt"
+              suppressJoinFailure="yes"
+              targetNamespace="http://ASDecrypt">
+   <bpmndi:BPMNDiagram xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                       xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                       aei:bpelDigest=""
+                       aei:editStyle="BPMN"
+                       aei:layoutNeeded="false"
+                       aei:modelVersion="5"
+                       aei:objectId="151561921575026716"
+                       aei:processInitiatorSim=""
+                       isHorizontal="false">
+      <bpmndi:BPMNPlane>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="151561922148526974"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="151561922148526974"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {170,94}"
+                           aei:absoluteSize="DIM {90,165}"
+                           aei:objectId="151561933507527196"
+                           aei:type="SEQUENCE"
+                           bpmnElement="151561933507527196"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="160" y="84"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {180,104}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:attachments=""
+                           aei:name="automatedStep"
+                           aei:objectId="151561933507327192"
+                           aei:principal=""
+                           aei:text="automatedStep"
+                           aei:type="RECEIVE"
+                           bpmnElement="151561933507327192">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {188,161}"
+                              aei:absoluteSize="DIM {74,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="151561933507327192"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="151561933507627198"
+                              aei:relative.location="LOC {-37,47}"
+                              aei:text="automatedStep"
+                              bpmnElement="151561933507327192label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {180,189}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:name="automatedStep-Reply"
+                           aei:objectId="151561933507427194"
+                           aei:text="automatedStep-Reply"
+                           aei:type="REPLY"
+                           bpmnElement="151561933507427194">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {173,246}"
+                              aei:absoluteSize="DIM {105,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="151561933507427194"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="151561933507627200"
+                              aei:relative.location="LOC {-52,47}"
+                              aei:text="automatedStep-Reply"
+                              bpmnElement="151561933507427194label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {105,42}"
+                           aei:absoluteSize="DIM {110,160}"
+                           aei:catchAllFaults="true"
+                           aei:collapedIconLocation="icons/bpmn/activity/catch.png"
+                           aei:constraint=""
+                           aei:expanded="true"
+                           aei:expandedSize="DIM {-1,-1}"
+                           aei:imageLocation="icons/bpmn/activity/large/paletteCatchLarge.png"
+                           aei:objectId="151562201471029146"
+                           aei:type="CATCH_ALL"
+                           bpmnElement="151562201471029146"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="95" y="32"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {158,52}"
+                              aei:absoluteSize="DIM {24,13}"
+                              aei:anchor.location="0"
+                              aei:anchor.objectId="151562202153329458"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="151562202153429460"
+                              aei:relative.location="LOC {-12,0}"
+                              aei:text="Error"
+                              bpmnElement="151562201471029146label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {125,112}"
+                           aei:absoluteSize="DIM {70,60}"
+                           aei:objectId="151562201879329430"
+                           aei:type="REPLY"
+                           bpmnElement="151562201879329430">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {149,169}"
+                              aei:absoluteSize="DIM {42,13}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="151562201879329430"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="151562201879429432"
+                              aei:relative.location="LOC {-21,47}"
+                              aei:text="Message"
+                              bpmnElement="151562201879329430label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {115,102}"
+                           aei:absoluteSize="DIM {90,80}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="151562201879529434"
+                           aei:type="Sequence"
+                           bpmnElement="151562201879329430wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="-10" y="-10"/>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+   <bpel:extensions>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.activebpel.org/2009/02/bpel/extension/ignorable"/>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.omg.org/spec/BPMN/20100524/DI"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2006/09/bpel/extension/query_handling"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2009/06/bpel/extension/links"/>
+   </bpel:extensions>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                namespace="http://schemas.active-endpoints.com/wsdl/screenFlow/2010/10/avosAutomatedStep.wsdl"/>
+   <bpel:import importType="http://modules.active-endpoints.com/2009/07/xquery"
+                location="../xquery/AeCryptoUtil.xq"
+                namespace="http://activevos.com/modules/Aeaecu/1.0/xquery"/>
+   <bpel:partnerLinks>
+      <bpel:partnerLink aei:id="151561922148526974"
+                        myRole="Provider"
+                        name="AutomatedStep"
+                        partnerLinkType="avosAutomatedStep:AutomatedStepOperationsPLT"/>
+   </bpel:partnerLinks>
+   <bpel:variables>
+      <bpel:variable element="sf:automatedStepRequest" name="gAutomatedStepRequest"/>
+   </bpel:variables>
+   <bpel:faultHandlers>
+      <bpel:catchAll aei:id="151562201471029146">
+         <bpel:scope aei:implicit="true">
+            <bpel:variables>
+               <bpel:variable messageType="avosAutomatedStep:automatedStepFault" name="parameters"/>
+            </bpel:variables>
+            <bpel:sequence>
+               <bpel:assign aei:assignType="XQUERY" aei:id="151562203660829476">
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;sf:faultResponse xmlns:sf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"&gt;
+   &lt;sf:code&gt;{ abx:getFaultCode() }&lt;/sf:code&gt;
+   &lt;sf:reason&gt;{ abx:getFaultString() }&lt;/sf:reason&gt;
+   &lt;sf:details&gt;{ abx:getFaultDetail() }&lt;/sf:details&gt;
+&lt;/sf:faultResponse&gt;</bpel:from>
+                     <bpel:to part="automatedStepFaultResponse" variable="parameters"/>
+                  </bpel:copy>
+               </bpel:assign>
+               <bpel:reply aei:id="151562201879329430"
+                           faultName="avosAutomatedStep:fault"
+                           operation="automatedStep"
+                           partnerLink="AutomatedStep"
+                           variable="parameters"/>
+            </bpel:sequence>
+         </bpel:scope>
+      </bpel:catchAll>
+   </bpel:faultHandlers>
+   <bpel:sequence aei:id="151561933507527196">
+      <bpel:receive aei:id="151561933507327192"
+                    createInstance="yes"
+                    name="automatedStep"
+                    operation="automatedStep"
+                    partnerLink="AutomatedStep"
+                    variable="gAutomatedStepRequest"/>
+      <bpel:scope aei:implicit="true" name="automatedStep-Reply">
+         <bpel:variables>
+            <bpel:variable messageType="avosAutomatedStep:automatedStepResponse" name="parameters"/>
+         </bpel:variables>
+         <bpel:sequence>
+            <bpel:assign aei:assignType="XQUERY" aei:id="151561952128927450">
+               <bpel:copy>
+                  <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">let $in_decrypt := $gAutomatedStepRequest/sf:parameters/sf:parameter[@name="in_decrypt"]/text()
+return
+&lt;sf:automatedStepResponse xmlns:sf="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"&gt;
+   &lt;sf:fields&gt;
+     &lt;sf:field name="out_decrypted"&gt;{ aecu:decryptString($in_decrypt) }&lt;/sf:field&gt;
+   &lt;/sf:fields&gt;
+&lt;/sf:automatedStepResponse&gt;</bpel:from>
+                  <bpel:to part="automatedStepResponse" variable="parameters"/>
+               </bpel:copy>
+            </bpel:assign>
+            <bpel:reply aei:id="151561933507427194"
+                        name="automatedStep-Reply"
+                        operation="automatedStep"
+                        partnerLink="AutomatedStep"
+                        variable="parameters"/>
+         </bpel:sequence>
+      </bpel:scope>
+   </bpel:sequence>
+</bpel:process>
